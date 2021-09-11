@@ -28,7 +28,7 @@ PostgreSQL Public
 # USAGE
   Configure setters using kpt as follows:
   ```
-  kpt cfg set . NAME VALUE
+  kpt fn eval --image gcr.io/kpt-fn/apply-setters:v0.1 -- NAME=VALUE
   ```
   Setting placeholder values is required, changing package-defaults is optional.
 
@@ -36,7 +36,7 @@ PostgreSQL Public
 encoded](https://kubernetes.io/docs/concepts/configuration/secret/#creating-a-secret-manually)
 value.
   ```
-  kpt cfg set . password $(echo -n 'password' | base64)
+  kpt fn eval --image gcr.io/kpt-fn/apply-setters:v0.1 -- password=$(echo -n 'password' |base64)
   ```
   _Optionally_ set `authorized-network`, `authorized-network-cidr`, and `instance-name` in the same manner.
 
