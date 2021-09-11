@@ -19,4 +19,4 @@ spec:
   charset: UTF8
   collation: en_US.UTF8
   instanceRef:
-    name: postgres-public-solution # {"$ref":"#/definitions/io.k8s.cli.setters.instance-name"}
+    name: postgres-public-solution # kpt-set: ${instance-name}

@@ -17,7 +17,7 @@ metadata:
   name: default
 spec:
   instanceRef:
-    name: postgres-public-solution # {"$ref":"#/definitions/io.k8s.cli.setters.instance-name"}
+    name: postgres-public-solution # kpt-set: ${instance-name}
   password:
     valueFrom:
       secretKeyRef:
