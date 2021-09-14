@@ -42,13 +42,20 @@ value.
 
   **Note:** If your SQL Instance is deleted, the name you used will be reserved
 for **7 days**. In order to re-apply this solution, you need to run
-`kpt cfg set . instance-name new-instance-name` to change to a new
+`kpt fn eval --image gcr.io/kpt-fn/apply-setters:v0.1 -- instance-name=new-instance-name` to change to a new
 instance name that hasn't been used in the last 7 days.
  
-  Once the configuration is satisfactory, apply:
+  Once the configuration is satisfactory, apply with kubectl:
   ```
   kubectl apply -f .
   ```
+
+  Or using kpt to package and apply:
+  ```
+  kpt pkg init
+  kpt live init && kpt live apply --reconcile-timeout=<some timeout value>
+  ```
+
 # LICENSE
   Apache 2.0 - See [LICENSE](/LICENSE) for more information.
 
